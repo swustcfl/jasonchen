@@ -374,7 +374,10 @@ appropriately in ~/.emacs.el.\n" (nth 1 my:ycmd-server-command)))
                                   python-mode
                                   makefile-mode
                                   sh-mode)
-                                which-func-modes))
+                                (if (eq which-func-modes 't)
+                                    nil
+                                  which-func-modes)
+                                ))
 ;; Call the header line update
 (add-hook 'buffer-list-update-hook
           'sl/display-header)
