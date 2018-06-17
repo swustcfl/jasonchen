@@ -55,6 +55,7 @@
 
 ;;配置nilsdeppe
 ;;安装的包需要在这里写上不然会提示包没有
+;;melpa-include-packages 变量定义在init-elpa.el中
 (setq  melpa-include-packages
        (append  melpa-include-packages
                 '(clang-format
