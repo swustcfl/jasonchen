@@ -61,7 +61,9 @@
                 '(clang-format
                   modern-cpp-font-lock
                   google-c-style
-                  magit)))
+                  magit
+                  logview
+                  zoom)))
 (require-init 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
@@ -72,5 +74,24 @@
   )
 (add-hook 'prog-mode-hook 'jc-project-root)
 ;;---------------------------find file in project -----------------------------
+
+;;--------------------------logview--------------------------------------------
+;;配置logview用来看终端日志
+;;https://github.com/doublep/logview
+;;https://writequit.org/articles/working-with-logs-in-emacs.html
+(use-package logview
+  :ensure t)
+;;--------------------------logview--------------------------------------------
+
+;;--------------------------zoom--------------------------------------------
+;;配置窗口布局
+;;https://github.com/cyrus-and/zoom
+;;设置黄金分割线'(0.618 . 0618)
+(use-package zoom
+  :ensure t
+  :init
+  (setq zoom-mode 't)
+  (setq zoom-size '(0.618 . 0.618)))
+;;--------------------------zoom--------------------------------------------
 
 (provide 'init-jasonchen)
