@@ -80,7 +80,12 @@
 ;;https://github.com/doublep/logview
 ;;https://writequit.org/articles/working-with-logs-in-emacs.html
 (use-package logview
-  :ensure t)
+  :ensure t
+  :mode ("\\.log\\'" . logview-mode)
+  :config
+;; {{ specify major mode uses Evil (vim) NORMAL state or EMACS original state.
+;; You may delete this setup to use Evil NORMAL state always.
+  (evil-set-initial-state 'logview-mode 'emacs))
 ;;--------------------------logview--------------------------------------------
 
 ;;--------------------------zoom--------------------------------------------
