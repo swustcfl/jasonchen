@@ -79,6 +79,26 @@
 ;;配置logview用来看终端日志
 ;;https://github.com/doublep/logview
 ;;https://writequit.org/articles/working-with-logs-in-emacs.html
+;;在custom-set-variables.el增加Juphoon日志配置,也可以直接从配置C-c C-s进入配置，配置好保存。
+;;(custom-set-variables
+;; '(logview-additional-level-mappings
+;;    (quote
+;;     (("JuphoonLevel"
+;;       (error "ERROR:")
+;;       (warning "WARN:")
+;;       (information "INFO:")
+;;       (debug "DEBUG:")
+;;       ))))
+;;  '(logview-additional-submodes
+;;    (quote
+;;     (("Juphoon"
+;;       (format . "TIMESTAMP NAME: LEVEL IGNORED MESSAGE")
+;;       (levels . "JuphoonLevel")
+;;       (timestamp "JuphoonTime")
+;;       (aliases)))))
+;;  '(logview-additional-timestamp-formats (quote (("JuphoonTime" (regexp . "\\w+:.*\\+\\w+")))))
+;;)
+
 (use-package logview
   :ensure t
   :mode ("\\.log\\'" . logview-mode)
