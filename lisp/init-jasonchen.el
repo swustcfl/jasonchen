@@ -69,8 +69,11 @@
 ;;---------------------------find file in project -----------------------------
 ;;项目涉及很多git仓库，所以要ffip-project-root要统一到最上层
 (defun jc-project-root ()
-  (when (f-descendant-of-p (buffer-file-name) (file-truename "~/Documents/justalk/justalk"))
-      (setq-local ffip-project-root (file-truename "~/Documents/justalk/justalk")))
+  (condition-case var
+      (when (f-descendant-of-p (buffer-file-name) (file-truename "~/Documents/justalk/justalk"))
+        (setq-local ffip-project-root (file-truename "~/Documents/justalk/justalk")))
+    ('error
+     (message "func:%s buffer-file-name:%s error: %s" (symbol-name 'jc-project-root) buffer-file-name var)))
   )
 (add-hook 'prog-mode-hook 'jc-project-root)
 ;;---------------------------find file in project -----------------------------
