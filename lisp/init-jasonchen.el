@@ -51,6 +51,14 @@
 
 ;;加载org生效
 (add-hook 'org-mode-hook 'jc-org-zh-en-aligned-buffer)
+
+;;设置plantuml
+(setq org-babel-load-languages
+      '((plantuml . t)
+        (emacs-lisp . t)))
+(org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
+(setq org-plantuml-jar-path
+      (expand-file-name "~/Downloads/plantuml.jar"))
 ;;-----------------------------org end------------------------------------------
 
 ;;配置nilsdeppe
