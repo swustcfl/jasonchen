@@ -127,7 +127,8 @@
   :ensure t
   :init
   (setq zoom-mode 't)
-  (setq zoom-size '(0.618 . 0.618)))
+  (setq zoom-size '(0.618 . 0.618))
+  :bind ("C-x +" . zoom-mode))
 ;;--------------------------zoom--------------------------------------------
 
 (provide 'init-jasonchen)
