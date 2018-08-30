@@ -71,7 +71,8 @@
                   google-c-style
                   magit
                   logview
-                  zoom)))
+                  zoom
+                  go-gen-test)))
 (require-init 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
@@ -130,5 +131,22 @@
   (setq zoom-size '(0.618 . 0.618))
   :bind ("C-x +" . zoom-mode))
 ;;--------------------------zoom--------------------------------------------
+
+;;--------------------------go--------------------------------------------
+(defvar go-tab-width 4
+  "Set the `tab-width' in Go mode. Default is 4.")
+
+(defvar go-format-before-save nil
+  "Use gofmt before save. Set to non-nil to enable gofmt before saving. Default is nil.")
+
+(eval-after-load 'exec-path-from-shell
+  '(progn
+     (when (memq window-system '(mac ns))
+       (exec-path-from-shell-initialize)
+       (exec-path-from-shell-copy-env "GOPATH"))))
+
+(require-init 'init-go)
+
+;;--------------------------go--------------------------------------------
 
 (provide 'init-jasonchen)
