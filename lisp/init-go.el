@@ -25,6 +25,8 @@
   :ensure t
   :commands spacemacs//go-enable-gometalinter
   :init
+  ;;https://github.com/favadi/flycheck-gometalinter/issues/13
+  (setq flycheck-gometalinter-deadline "10s")
   (add-hook 'go-mode-hook 'spacemacs//go-enable-gometalinter t))
 
 ;;-----------------------------go-eldoc
