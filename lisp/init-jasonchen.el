@@ -72,7 +72,9 @@
                   magit
                   logview
                   zoom
-                  go-gen-test)))
+                  go-gen-test
+                  company-go
+                  flycheck-golangci-lint)))
 (require-init 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
@@ -153,7 +155,10 @@
        (exec-path-from-shell-copy-env "GOPATH"))))
 
 (setq go-format-before-save t)
-(setq go-use-gometalinter t)
+
+(setq go-use-gometalinter nil)
+(setq go-use-golangci-lint t)
+
 (require-init 'init-go)
 
 ;;--------------------------go--------------------------------------------

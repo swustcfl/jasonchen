@@ -30,6 +30,25 @@
   (setq flycheck-gometalinter-deadline "10s")
   (add-hook 'go-mode-hook 'spacemacs//go-enable-gometalinter t))
 
+;;增加golangci-lint的支持
+(defun spacemacs//go-enable-golangci-lint ()
+  "Enable `flycheck-golangci-lint' and disable overlapping `flycheck' linters."
+  (setq flycheck-disabled-checkers '(go-gofmt
+                                     go-golint
+                                     go-vet
+                                     go-build
+                                     go-test
+                                     go-errcheck))
+  (flycheck-golangci-lint-setup))
+
+(use-package flycheck-golangci-lint
+  :defer t
+  :if go-use-golangci-lint
+  :ensure t
+  :commands spacemacs//go-enable-golangci-lint
+  :init
+  (add-hook 'go-mode-hook 'spacemacs//go-enable-golangci-lint))
+
 ;;-----------------------------go-eldoc
 ;;https://github.com/syohex/emacs-go-eldoc
 ;; TODO gomode中要增加eldoc模式，见spacemacs/ggtags-mode-enable
