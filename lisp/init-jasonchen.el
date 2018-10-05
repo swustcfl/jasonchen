@@ -139,11 +139,14 @@
 (defvar go-format-before-save nil
   "Use gofmt before save. Set to non-nil to enable gofmt before saving. Default is nil.")
 
+;;配置
 (eval-after-load 'exec-path-from-shell
   '(progn
      (when (memq window-system '(mac ns))
        (exec-path-from-shell-initialize)
        (exec-path-from-shell-copy-env "GOPATH"))))
+
+(setq go-format-before-save t)
 
 (require-init 'init-go)
 
