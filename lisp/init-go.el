@@ -22,6 +22,7 @@
    (flycheck-gometalinter-setup))
 (use-package flycheck-gometalinter
   :defer t
+  :if go-use-gometalinter
   :ensure t
   :commands spacemacs//go-enable-gometalinter
   :init

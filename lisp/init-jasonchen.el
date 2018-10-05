@@ -139,6 +139,12 @@
 (defvar go-format-before-save nil
   "Use gofmt before save. Set to non-nil to enable gofmt before saving. Default is nil.")
 
+(defvar go-use-gometalinter nil
+  "Use gometalinter if the variable has non-nil value.")
+
+(defvar go-use-golangci-lint nil
+  "Use golangci-lint if the variable has non-nil value.")
+
 ;;配置
 (eval-after-load 'exec-path-from-shell
   '(progn
@@ -147,7 +153,7 @@
        (exec-path-from-shell-copy-env "GOPATH"))))
 
 (setq go-format-before-save t)
-
+(setq go-use-gometalinter t)
 (require-init 'init-go)
 
 ;;--------------------------go--------------------------------------------
