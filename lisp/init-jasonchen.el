@@ -154,7 +154,7 @@
        (exec-path-from-shell-initialize)
        (exec-path-from-shell-copy-env "GOPATH"))))
 
-(setq go-format-before-save t)
+(setq go-format-before-save nil)
 
 (setq go-use-gometalinter nil)
 (setq go-use-golangci-lint t)
