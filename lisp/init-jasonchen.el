@@ -159,6 +159,9 @@
 (setq go-use-gometalinter nil)
 (setq go-use-golangci-lint t)
 
+;; 使用gogetdoc来获取文档说明
+(setq godoc-at-point-function 'godoc-gogetdoc)
+
 (require-init 'init-go)
 
 ;;--------------------------go--------------------------------------------
