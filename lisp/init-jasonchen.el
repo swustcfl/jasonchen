@@ -75,7 +75,7 @@
                   go-gen-test
                   company-go
                   flycheck-golangci-lint)))
-(require-init 'init-nilsdeppe)
+(require 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
 ;;项目涉及很多git仓库，所以要ffip-project-root要统一到最上层
@@ -162,7 +162,7 @@
 ;; 使用gogetdoc来获取文档说明
 (setq godoc-at-point-function 'godoc-gogetdoc)
 
-(require-init 'init-go)
+(require 'init-go)
 
 ;;--------------------------go--------------------------------------------
 
