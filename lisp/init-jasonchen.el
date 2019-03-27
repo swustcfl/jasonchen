@@ -33,7 +33,8 @@
   (interactive)
 
   ;;创建一个字体集，这个字体集合，中文字符集的话使用Hiragino Sans GB
-  (setq fontset-org (create-fontset-from-ascii-font "Source Code Pro-14"))
+  ;;SauceCodePro Nerd Font 是通过brew cask 安装的
+  (setq fontset-org (create-fontset-from-ascii-font "SauceCodePro Nerd Font-14"))
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font fontset-org charset
                       (font-spec :family  "Hiragino Sans GB" :size 16)))
@@ -41,7 +42,7 @@
   ;;创建face，这个字体集合使用上面
   (make-face 'jc-org-faceset)
   (set-face-attribute 'jc-org-faceset nil :font
-                      (format   "%s:pixelsize=%d"  "Source Code Pro"  14)
+                      (format   "%s:pixelsize=%d"  "SauceCodePro Nerd Font"  14)
                       :fontset fontset-org)
  
   ;;生效某个buffer使用特定face
