@@ -60,6 +60,8 @@
 (org-babel-do-load-languages 'org-babel-load-languages org-babel-load-languages)
 (setq org-plantuml-jar-path
       (expand-file-name "~/Downloads/plantuml.jar"))
+
+(require 'init-orgmode)
 ;;-----------------------------org end------------------------------------------
 
 ;;配置nilsdeppe
@@ -166,5 +168,11 @@
 (require 'init-go)
 
 ;;--------------------------go--------------------------------------------
+;;--------------------------emacs-----------------------------------------
+;; 打开菜单栏
+(menu-bar-mode 1)
+;;--------------------------emacs-----------------------------------------
+
+
 
 (provide 'init-jasonchen)
