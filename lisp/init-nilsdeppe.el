@@ -81,12 +81,18 @@
 
 ;;配置counsel-etags
 ;;忽略目录和文件
-;;(add-to-list 'counsel-etags-ignore-directories "build_clang")
-;;(add-to-list 'counsel-etags-ignore-directories ".vscode")
-;;(add-to-list 'counsel-etags-ignore-filenames ".clang-format")
-;;(add-to-list 'counsel-etags-ignore-filenames "TAGS")
-;;(add-to-list 'counsel-etags-ignore-filenames "*.json")
-;;(add-to-list 'counsel-etags-ignore-filenames "*.html")
+(eval-after-load 'counsel-etags
+  '(progn
+     ;; counsel-etags-ignore-directories does NOT support wildcast
+     (add-to-list 'counsel-etags-ignore-directories "build_clang")
+     (add-to-list 'counsel-etags-ignore-directories "build_clang")
+     ;; counsel-etags-ignore-filenames supports wildcast
+     (add-to-list 'counsel-etags-ignore-filenames "TAGS")
+     (add-to-list 'counsel-etags-ignore-filenames "*.json")
+     (add-to-list 'counsel-etags-ignore-filenames "*.md")
+     (add-to-list 'counsel-etags-ignore-filenames "*.def")
+     ;;(setq counsel-etags-debug t)
+     ))
 
 ;; Don't ask before rereading the TAGS files if they have changed
 (setq tags-revert-without-query t)
