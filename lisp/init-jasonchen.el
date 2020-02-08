@@ -52,6 +52,8 @@
 
 ;;加载org生效
 (add-hook 'org-mode-hook 'jc-org-zh-en-aligned-buffer)
+;;加载markdown生效表格中英文对齐
+(add-hook 'markdown-mode-hook 'jc-org-zh-en-aligned-buffer)
 
 ;;设置plantuml
 (setq org-babel-load-languages
@@ -62,6 +64,7 @@
       (expand-file-name "~/Downloads/plantuml.jar"))
 
 (require 'init-orgmode)
+
 ;;-----------------------------org end------------------------------------------
 
 ;;配置nilsdeppe
