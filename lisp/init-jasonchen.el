@@ -63,7 +63,7 @@
 (setq org-plantuml-jar-path
       (expand-file-name "~/Downloads/plantuml.jar"))
 
-(require 'init-orgmode)
+(require-init 'init-orgmode)
 
 ;;-----------------------------org end------------------------------------------
 
@@ -81,7 +81,7 @@
                   go-gen-test
                   company-go
                   flycheck-golangci-lint)))
-(require 'init-nilsdeppe)
+(require-init 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
 ;;项目涉及很多git仓库，所以要ffip-project-root要统一到最上层
@@ -168,7 +168,7 @@
 ;; 使用gogetdoc来获取文档说明
 (setq godoc-at-point-function 'godoc-gogetdoc)
 
-(require 'init-go)
+(require-init 'init-go)
 
 ;;--------------------------go--------------------------------------------
 ;;--------------------------emacs-----------------------------------------
