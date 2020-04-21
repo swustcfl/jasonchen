@@ -175,6 +175,38 @@
 ;; 打开菜单栏
 (menu-bar-mode 1)
 ;;--------------------------emacs-----------------------------------------
+;;--------------------------auto-package-update
+;;自动更新的功能
+(use-package auto-package-update
+  :ensure t
+  :config
+  (setq auto-package-update-delete-old-versions t)
+  (setq auto-package-update-hide-results t)
+  (setq auto-package-update-interval 14)
+  (setq auto-package-update-prompt-before-update t)
+  ;; 如果需要立刻更新auto-package-update-now
+  (auto-package-update-maybe)
+  )
+;;--------------------------
+;;--------------------------dash
+;;使用dash查询文档
+;;use-package 在init-nilsdeppe加载的
+(use-package use-package-ensure-system-package
+  :ensure t)
+
+;;melpa-include-packages 非stable的包要加到这里
+(setq  melpa-include-packages
+       (append  melpa-include-packages
+                '(dash-at-point)))
+(use-package dash-at-point
+  :ensure t
+  :if (eq system-type 'darwin)
+  :ensure-system-package
+  ("/Applications/Dash.app" . "brew cask install dash")
+  :commands dash-at-point
+  :init
+  (my-comma-leader-def "ds" 'dash-at-point))
+;;--------------------------
 
 
 
