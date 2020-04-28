@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name:front matter
+# key: yfm
+# --
+---
+title: ${1:标题}
+description: ${2:描述}
+reference: ${3:链接}
+updated: `(insert (current-time-string))`
+---
