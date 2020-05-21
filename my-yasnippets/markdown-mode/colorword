@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name:color word
+# key: cw
+# --
+**<span style="color:${1:颜色}">${2:内容}</span>**$0
