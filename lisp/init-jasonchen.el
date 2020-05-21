@@ -208,6 +208,14 @@
   (my-comma-leader-def "ds" 'dash-at-point))
 ;;--------------------------
 
+;;--------------------------snippet
+;;生效my-yasnippets路径下的snippet
+(defun my-yasnippets-reload ()
+  (message "reload ~/my-yasnippets")
+  (yas-compile-directory (file-truename "~/my-yasnippets"))
+  (yas-reload-all))
+(advice-add 'my-yas-reload-all :before #'my-yasnippets-reload)
+;;--------------------------
 
 
 (provide 'init-jasonchen)
