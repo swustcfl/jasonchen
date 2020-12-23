@@ -84,15 +84,33 @@
 (require-init 'init-nilsdeppe)
 
 ;;---------------------------find file in project -----------------------------
-;;项目涉及很多git仓库，所以要ffip-project-root要统一到最上层
-(defun jc-project-root ()
-  (condition-case var
-      (when (f-descendant-of-p (buffer-file-name) (file-truename "~/Documents/justalk/justalk"))
-        (setq-local ffip-project-root (file-truename "~/Documents/justalk/justalk")))
-    ('error
-     (message "func:%s buffer-file-name:%s error: %s" (symbol-name 'jc-project-root) buffer-file-name var)))
+;;https://github.com/technomancy/find-file-in-project
+;;使用fd来取代find
+(setq ffip-use-rust-fd t)
+;;自动设置justalk相关sdk路径
+;;配置参考的是上面的链接
+(defun my-setup-develop-environment ()
+  (interactive)
+  (when (ffip-current-full-filename-match-pattern-p "\\(lemon\\|avatar\\|giraffe\\|grape\\|jusmeeting\\|melon\\)")
+    ;; Though PROJECT_DIR is team's project, I care only its sub-directory "subproj1""
+    (setq-local ffip-project-root "~/Documents/justalk/justalk")
+    ;; well, I'm not interested in concatenated BIG js file or file in dist/
+    (if ffip-use-rust-fd
+        ;;(setq-local ffip-find-options "--size -64k --exclude '*/external/*'")
+        (setq-local ffip-find-options "--size -64k -E '*test*'")
+      ((setq-local ffip-find-options "-not -size +64k -not -iwholename '*/dist/*'")))
+    ;; for this project, I'm only interested certain types of files
+    ;;(setq-local ffip-patterns '("*.html" "*.js" "*.css" "*.java" "*.xml" "*.js"))
+    ;; ignore files whose name match certain glob pattern
+    ;; 注释掉是因为默认的ffip-ignore-filenames的值满足需求
+    ;;(setq-local ffip-ignore-filenames nil)
+    ;; exclude `dist/' directory
+    ;;(add-to-list 'ffip-prune-patterns "*/dist")
+    )
+  ;; insert more WHEN statements below this line for other projects
   )
-(add-hook 'prog-mode-hook 'jc-project-root)
+
+(add-hook 'prog-mode-hook 'my-setup-develop-environment)
 ;;---------------------------find file in project -----------------------------
 
 ;;--------------------------logview--------------------------------------------
