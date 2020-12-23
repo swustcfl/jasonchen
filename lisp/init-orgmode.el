@@ -189,7 +189,7 @@
 (defun copy-to-beorg ()
   (interactive)
   (my-async-shell-command "rm -rf ~/Google\\ 云端硬盘/org/agenda/\\.*")
-  (my-async-shell-command "cp -rf ~/Google\\ 云端硬盘/org ~/Library/Mobile\\ Documents/iCloud~com~appsonthemove~beorg/Documents/"))
+  (my-async-shell-command "cp -rf ~/Google\\ 云端硬盘/org/agenda ~/Library/Mobile\\ Documents/iCloud~com~appsonthemove~beorg/Documents/"))
 (run-with-idle-timer 1800 t
                      #'copy-to-beorg)
 (provide 'init-orgmode)
