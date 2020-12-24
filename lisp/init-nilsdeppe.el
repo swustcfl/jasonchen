@@ -181,7 +181,8 @@
 ;; Set up YouCompleteMe for emacs:
 ;; https://github.com/Valloric/ycmd
 ;; https://github.com/abingham/emacs-ycmd
-(defvar my:python-location (executable-find (nth 0 my:ycmd-server-command)))
+;;(defvar my:python-location (executable-find (nth 0 my:ycmd-server-command)))
+(defvar my:python-location nil);;关闭ycmd
 (if (not my:python-location)
     (message
      "Could not start YouCompleteMeDaemon because the python executable could
